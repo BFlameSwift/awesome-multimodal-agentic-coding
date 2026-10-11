@@ -18,12 +18,12 @@ A research map of multimodal agents that orchestrate model capabilities to build
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![Collaborate](https://img.shields.io/badge/Collaborate-Let's%20build%20together-8A2BE2.svg)](#contact-and-collaboration)
-[![Core works](https://img.shields.io/badge/Core%20works-151-blue.svg)](#paper-and-project-list)
+[![Core works](https://img.shields.io/badge/Core%20works-154-blue.svg)](#paper-and-project-list)
 
 [![English](https://img.shields.io/badge/English-default-0969DA?style=flat-square)](./README.md)
 [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-switch-6E7781?style=flat-square)](./README.zh-CN.md)
 
-**Last updated: 2026-10-10**
+**Last updated: 2026-10-11**
 
 </div>
 
@@ -173,9 +173,11 @@ The list below is a practical starting point rather than a security audit or end
 |---|---|---|---|
 | Browser building and testing | [Playwright MCP](https://github.com/microsoft/playwright-mcp) · [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) | Official MCP / CLI + skills | Exposes accessibility structure, screenshots, interaction, console and network evidence, and performance traces. |
 | Human-to-agent visual bug reports | [Shotback](https://github.com/DCCA/shotback) | Community browser extension + skill; MIT | Packages annotated screenshots with CSS selectors, React component paths, viewport context, and readable failed requests; supports before/after recapture for human-guided repairs. |
+| Evidence-gated UI repair | [ReproSight](https://github.com/tungcorn/ReproSight) | Community CLI; MIT | Gives an external coding agent browser geometry, screenshots, CSS source candidates, isolated workspaces, and target/regression checks before human review; its flagship demo uses a deterministic mock provider, not a real-model accuracy benchmark. |
 | Design-to-code and design write-back | [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/) | Official MCP + skills | Lets an agent inspect design context, generate implementation code, and create or update native Figma content. |
 | Text/image-to-CAD workflows | [text-to-cad](https://github.com/earthtojake/text-to-cad) | Community skill library | Covers CAD generation and editing, browser preview, STEP/DXF/robot formats, manufacturability checks, slicing, and handoff—not only one-shot geometry generation. |
 | Parametric CAD execution | [CadQuery MCP server](https://github.com/CadQuery/cadquery-contrib/tree/master/mcp-server) | Project-hosted MCP | Executes CadQuery, renders multiple SVG views, inspects topology and physical properties, and exports manufacturing formats. |
+| CQ-Editor skill-guided CAD review | [CadQuery AI Agent](https://github.com/naturecodec-stack/Agentic-AI-for-CadQuery) | Community workflow + shape templates; license unspecified | Its v4 workflow executes CadQuery, sends three rendered projections to a multimodal reviewer, and returns rejection feedback to the coder; bounded visual retries end at human approval, and missing renders can bypass review. |
 | Measurable, versioned CAD iteration | [agentcad](https://github.com/jdilla1277/agentcad) | Community CLI + optional MCP; Apache-2.0 | Executes build123d or CadQuery scripts and returns versioned STEP artifacts, geometric measurements, multi-view previews, specification checks, and geometric diffs for subsequent edits. |
 | Parametric CAD workbench and review | [AgentCAD (n3r)](https://github.com/n3r/AgentCAD) | Community workbench + HTTP/MCP; Apache-2.0 | Builds build123d parts and assemblies, returns multi-view PNGs as MCP image content, and exposes measured design-spec results alongside geometry-aware review workflows. |
 | Hosted CAD agents and geometry APIs | [Zoo developer tools](https://docs.zoo.dev/docs) | Official MCP / Agent API / Engine API | Connects language-driven KCL workflows to geometric execution, snapshots, inspection, and debugging. |
@@ -200,6 +202,7 @@ The list below is a practical starting point rather than a security audit or end
 | Diagram-as-code | [Mermaid MCP server](https://mermaid.ai/docs/ai/mcp-server) | Official MCP | Validates diagram syntax and returns SVG/PNG renders that can be inspected and repaired. |
 | Programmatic video | [Remotion](https://github.com/remotion-dev/remotion) | Official framework + skills | Turns React code into inspectable frames and videos, enabling frame-level rendering and iterative correction. |
 | Mathematical animation | [Manim MCP](https://github.com/paulnegz/manim-mcp) | Community MCP | Connects text, generated Manim code, rendered video, and subsequent correction in one workflow. |
+| SVG-first animation with preview gates | [manimate](https://github.com/bassimeledath/manimate) | Community Agent Skill; MIT | Guides Manim scene generation through SVG asset-grid and intermediate-frame checks, then fixes source code and rerenders within bounded retries before video assembly. |
 | Mathematical animation direction and review | [Manim Video Lab](https://github.com/ApliroAI/manim-video-lab) | Community Agent Skill; MIT | Uses a Docker-backed Manim/FFmpeg pipeline with explicit storyboard contracts, video or sampled-frame review, timestamped code fixes, and bounded rerender-and-review passes. |
 
 > **Safety note:** many of these integrations can execute code inside browsers, CAD systems, DCC tools, and game engines. Review the source, pin versions, restrict filesystem and network access, and use isolated project copies when evaluating community bridges.
@@ -319,6 +322,9 @@ Design briefs, drawings, and reference photographs can become editable building 
 ### 🎓 Education and Explanatory Media
 
 Executable lessons make abstract concepts visible through motion and interaction. The key feedback concerns not only appearance, but whether the explanation is accurate and readable.
+
+- `2026-10-09` **Interactive educational 3D jet engine** — chacha (@maker_evan). **Community demo · Browser-based explanation.** [[Original post]](https://x.com/maker_evan/status/2108459952683811167)
+  > Shows model-generated browser demonstrations for an interactive 3D jet-engine brief; the author's cost estimates and visuals are not controlled performance or engineering-accuracy evidence.
 
 - `arXiv 2026.06` **ManimAgent: Self-Evolving Multimodal Agents for Visual Education**. **Research workflow.** [[paper]](https://arxiv.org/abs/2606.30296) [[code]](https://github.com/jwj1342/Paper2Manim) [[task listing]](#documents-video)
   > Revises executable Manim animations using rendered-frame review and carries successful and failed refinement experience across tasks.<br>
@@ -600,6 +606,10 @@ Agents that treat vector or diagram code as an editable symbolic artifact and re
 
 Agents that produce executable graphics or CAD programs and revise them using rendered views, solver feedback, or geometric checks.
 
+- `arXiv 2026.10` **LiteReality-Agent: An Agentic System for Interactable 3D Indoor Scene Reconstruction**. [[paper]](https://arxiv.org/abs/2610.01863) [[project]](https://litereality.github.io/agent/) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > Orchestrates image and 3D generation tools around an executable Room.py workspace, revising room and object programs through calibrated photo–render comparisons, metric measurements, and collision/support checks.<br>
+  > **Verification:** Matched-view fidelity · metric geometry · support/intersection checks · perceptual assessment · articulated simulation export.
+
 - `arXiv 2026.10` **GATOR: Generative and Agentic 3D Object Reconstruction From Casual Images**. [[paper]](https://arxiv.org/abs/2610.11215) [[project]](https://research.nvidia.com/labs/lpr/gator/) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
   > Initializes a Blender edit–render–review loop with a pose-aware generative reconstruction, using input images and matched candidate renders to retain or revert local geometry and appearance repairs.<br>
   > **Verification:** Posed geometry and surface accuracy · rendered appearance · refinement/time-budget ablations · asset validity.
@@ -780,6 +790,10 @@ Agents and benchmarks that require generated games or visual programs to be laun
 
 Agents that write or revise executable code as a model of state, action, transition, physics, or environment dynamics.
 
+- `arXiv 2026.10` **AgentGarten: Code Worlds for Evolving Agents**. [[paper]](https://arxiv.org/abs/2610.12374) [[code]](https://github.com/MirroS-Lab/AgentGarten) [[project]](https://mirros-lab.github.io/agent-garten) [[blog]](https://mirros.ai/blog/worlds-for-evolving-agents) — `[Method]` `[System]` · `[Training]` `[Inference]` `[Environment]` `[Verification]`
+  > Separates executable world state and rules from a shared neural renderer, with coding agents using model tools and multi-camera rollout checks to repair scene programs before deployed agents evolve their playbooks.<br>
+  > **Verification:** Render consistency/latency · rollout contact, collision, and occlusion checks · multi-round task outcomes · renderer ablations.
+
 - `arXiv 2026.10` **Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos**. [[paper]](https://arxiv.org/abs/2610.04432) — `[Benchmark]` · `[Data Curation]` `[Environment]` `[Verification]`
   > Benchmarks agents that reconstruct environment and robot-control programs from embodied videos, inspect their own physical rollouts, and revise both before hidden geometry, dynamics, and task evaluation.<br>
   > **Verification:** Build rate · geometric fidelity · object-motion fidelity · physical task progress and success.
@@ -892,6 +906,10 @@ Agents that create visual documents or temporal media as executable or structure
 
 Work in which code is a controller, policy, experiment, or tool action and real or simulated multimodal outcomes guide subsequent rewrites.
 
+- `arXiv 2026.10` **Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement**. [[paper]](https://arxiv.org/abs/2610.12369) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > Develops a shared code-only robot policy offline by inspecting failed-run videos and explicit state, revising perception/control code, and retaining independently validated changes before model-free execution.<br>
+  > **Verification:** Held-out task success · State-estimation accuracy · Compatibility and regression checks · Revision acceptance · Runtime cost.
+
 - `arXiv 2026.10` **Agentic RSR: Real-to-Sim-to-Real through Scene Reconstruction and Execution-Grounded Robot Policies**. [[paper]](https://arxiv.org/abs/2610.10479) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
   > Connects visually refined Blender scene reconstruction with robot-policy development, feeding executed RGB observations and action outcomes back into program revision before fixed-policy real-world transfer.<br>
   > **Verification:** Metric reconstruction · scene-refinement ablations · randomized simulation success · paired real-robot transfer.
@@ -939,6 +957,14 @@ Work in which code is a controller, policy, experiment, or tool action and real 
 ## 🧱 Adjacent Foundations
 
 This section covers related foundations such as one-shot multimodal code generation, final-only evaluation, human-mediated refinement, and systems without a demonstrated same-trajectory feedback loop.
+
+- `arXiv 2026.10` **Recursive Video In-Context Learning for Agentic Robot**. [[paper]](https://arxiv.org/abs/2610.06843) [[code]](https://github.com/BWR-hhh/rvicl) — `[Method]` · `[Inference]` `[Verification]`
+  > Lets robot agents query a hierarchical demonstration on demand and compare it with live camera views to adapt frozen VLA and analytic primitive calls, while retaining the underlying execution harness.<br>
+  > **Verification:** LIBERO-PRO/Plus success · demonstration-access ablations · retrieval budgets · failure-conditioned re-entry.
+
+- `arXiv 2026.10` **MobiAgent: Dual-Loop Recursive Policy Self-Improvement for Long-Horizon Mobile Manipulation**. [[paper]](https://arxiv.org/abs/2610.03476) [[code]](https://github.com/kaiknower/MobiAgent) [[project]](https://kaiknower.github.io/mobiagent/) — `[Method]` `[System]` · `[Data Curation]` `[Training]` `[Inference]` `[Verification]`
+  > Combines visual planning and reflection with reusable action experts, recycling verified deployment rollouts into offline skill-policy updates rather than generated control-code revisions.<br>
+  > **Verification:** Long-horizon simulation/real-robot success · recovery/replanning · deployment-to-training rounds · component ablations.
 
 - `arXiv 2026.10` **BrickBench: Evaluating Agentic Brick Design**. [[paper]](https://arxiv.org/abs/2610.12452) [[code]](https://github.com/kulits/BrickAgent) [[project]](https://brickben.ch/) — `[Benchmark]` · `[Data Curation]` `[Environment]` `[Verification]`
   > Benchmarks programmatic brick assemblies under size and inventory constraints, separately assessing collision/stability validity, multiview semantic alignment, and human-validated design preference.<br>

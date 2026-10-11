@@ -18,12 +18,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![一起合作](https://img.shields.io/badge/%E4%B8%80%E8%B5%B7%E5%90%88%E4%BD%9C-%E6%AC%A2%E8%BF%8E%E8%81%94%E7%B3%BB-8A2BE2.svg)](#contact-and-collaboration)
-[![Core works](https://img.shields.io/badge/Core%20works-151-blue.svg)](#paper-and-project-list)
+[![Core works](https://img.shields.io/badge/Core%20works-154-blue.svg)](#paper-and-project-list)
 
 [![English](https://img.shields.io/badge/English-default-6E7781?style=flat-square)](./README.md)
 [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%E5%BD%93%E5%89%8D-0969DA?style=flat-square)](./README.zh-CN.md)
 
-**最后更新：2026-10-10**
+**最后更新：2026-10-11**
 
 </div>
 
@@ -173,11 +173,13 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 |---|---|---|---|
 | 浏览器构建与测试 | [Playwright MCP](https://github.com/microsoft/playwright-mcp) · [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) | 官方 MCP / CLI + Skills | 暴露可访问性结构、截图、交互、控制台与网络证据，以及性能 Trace。 |
 | 人向 Agent 提交视觉缺陷 | [Shotback](https://github.com/DCCA/shotback) | 社区浏览器扩展 + Skill；MIT | 将标注截图与 CSS 选择器、React 组件路径、视口上下文及可读取的失败请求一起交付，并支持前后重截图比较，辅助人工反馈驱动的修复。 |
+| 证据驱动的 UI 修复 | [ReproSight](https://github.com/tungcorn/ReproSight) | 社区 CLI；MIT | 向外部 Coding Agent 提供浏览器几何、截图、CSS 源码候选、隔离工作区及目标／回归检查，再交由人工审阅；其主要 Demo 使用确定性的模拟提供器，并非真实模型准确率基准。 |
 | 设计到代码与设计回写 | [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/) | 官方 MCP + Skills | 允许 Agent 检查设计上下文、生成实现代码，并创建或更新原生 Figma 内容。 |
 | 文本／图像到 CAD | [text-to-cad](https://github.com/earthtojake/text-to-cad) | 社区 Skill 库 | 覆盖 CAD 生成与编辑、浏览器预览、STEP/DXF/机器人格式、可制造性检查、切片和交付，而不只是一次性几何生成。 |
 | 参数化 CAD 执行 | [CadQuery MCP server](https://github.com/CadQuery/cadquery-contrib/tree/master/mcp-server) | 项目托管 MCP | 执行 CadQuery、渲染多视图 SVG、检查拓扑与物理属性，并导出制造格式。 |
 | 可测量、可追踪版本的 CAD 迭代 | [agentcad](https://github.com/jdilla1277/agentcad) | 社区 CLI + 可选 MCP；Apache-2.0 | 执行 build123d 或 CadQuery 脚本，返回带版本的 STEP 产物、几何测量、多视图预览、规格检查和几何差异，供后续修改使用。 |
 | 参数化 CAD 工作台与审查 | [AgentCAD (n3r)](https://github.com/n3r/AgentCAD) | 社区工作台 + HTTP/MCP；Apache-2.0 | 构建 build123d 零件与装配，以 MCP 图像内容返回多视图 PNG，并提供实测设计规格结果与几何感知的审查流程。 |
+| CQ-Editor 技能引导的 CAD 审阅 | [CadQuery AI Agent](https://github.com/naturecodec-stack/Agentic-AI-for-CadQuery) | 社区工作流 + 形状模板；许可证未注明 | v4 工作流执行 CadQuery，将三视图渲染交给多模态审阅器，并将拒绝反馈传回代码生成器；有限轮次的视觉重试最终交由人工批准，缺少渲染时可能跳过审阅。 |
 | 托管 CAD Agent 与几何 API | [Zoo developer tools](https://docs.zoo.dev/docs) | 官方 MCP / Agent API / Engine API | 将语言驱动的 KCL 工作流连接到几何执行、快照、检查和调试。 |
 | Blender 与程序化 3D | [Blender Lab MCP Server](https://www.blender.org/lab/mcp-server/) · [BlenderMCP 社区 Demo](https://github.com/ahujasid/blender-mcp) | 官方 MCP + 社区 Demo 生态 | 支持 Agent 在 Blender 中检查场景并执行 Python；社区 Demo 展示参考图到场景、Blender 到 Three.js 等工作流。 |
 | Blender 场景与生成工具桥 | [Scenario for Blender](https://github.com/scenario-labs/blender-plugin) | 项目维护的实验性扩展 + MCP；GPL-3.0-or-later | 提供视口截图、静帧渲染、场景操作及受开关控制的 Python，并连接托管资产生成；需要 Blender 5.0+ 与 Scenario 凭据。 |
@@ -201,6 +203,7 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 | 程序化视频 | [Remotion](https://github.com/remotion-dev/remotion) | 官方框架 + Skills | 将 React 代码转化为可检查的视频帧和视频，从而支持逐帧渲染与迭代纠错。 |
 | 数学动画 | [Manim MCP](https://github.com/paulnegz/manim-mcp) | 社区 MCP | 把文本、生成的 Manim 代码、渲染视频与后续修正连接成一条工作流。 |
 | 数学动画编排与审阅 | [Manim Video Lab](https://github.com/ApliroAI/manim-video-lab) | 社区 Agent Skill；MIT | 使用 Docker 内的 Manim/FFmpeg 管线，结合明确的分镜约定、视频或采样帧审阅、带时间定位的代码修复，以及有限轮次的再渲染与再审阅。 |
+| SVG 优先的动画与预览检查 | [manimate](https://github.com/bassimeledath/manimate) | 社区 Agent Skill；MIT | 引导 Manim 场景生成，先检查 SVG 资产网格与中间帧，再在有限重试内修复源码、重新渲染，最后组装视频。 |
 
 > **安全提示：** 许多集成能够在浏览器、CAD、DCC 工具和游戏引擎中执行代码。评估社区工具时，应检查源码、固定版本、限制文件系统与网络权限，并使用隔离的项目副本。
 
@@ -319,6 +322,9 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 ### 🎓 教育与解释性媒体
 
 可执行课程通过运动与交互呈现抽象概念；反馈不仅关注画面效果，也关注解释是否准确、易读。
+
+- `2026-10-09` **Interactive educational 3D jet engine** — chacha (@maker_evan)。**社区 Demo · 浏览器解释性媒体。** [[原帖]](https://x.com/maker_evan/status/2108459952683811167)
+  > 展示模型按交互式 3D 喷气发动机需求生成的浏览器案例；作者的费用估算和画面效果不构成受控性能对比或工程解释准确性证据。
 
 - `arXiv 2026.06` **ManimAgent: Self-Evolving Multimodal Agents for Visual Education**。**研究工作流。** [[论文]](https://arxiv.org/abs/2606.30296) [[代码]](https://github.com/jwj1342/Paper2Manim) [[任务分类条目]](#documents-video)
   > 根据渲染帧审阅修订可执行 Manim 动画，并将成功与失败的改进经验用于后续任务。<br>
@@ -600,6 +606,10 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 
 生成可执行图形或 CAD 程序，并利用渲染视图、Solver 反馈或几何检查进行修改的 Agent。
 
+- `arXiv 2026.10` **LiteReality-Agent: An Agentic System for Interactable 3D Indoor Scene Reconstruction**. [[论文]](https://arxiv.org/abs/2610.01863) [[项目]](https://litereality.github.io/agent/) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > 围绕可执行 Room.py 工作区编排图像与 3D 生成工具，根据校准照片—渲染对比、米制度量及碰撞／支撑检查修订房间和对象程序。<br>
+  > **验证维度：** 同视角保真度 · 度量几何 · 支撑／相交检查 · 感知质量评估 · 关节仿真导出。
+
 - `arXiv 2026.10` **GATOR: Generative and Agentic 3D Object Reconstruction From Casual Images**. [[论文]](https://arxiv.org/abs/2610.11215) [[项目]](https://research.nvidia.com/labs/lpr/gator/) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
   > 以带场景位姿的生成式重建初始化 Blender 编辑—渲染—审查闭环，根据输入图像及匹配的候选渲染，保留或回退局部几何与外观修复。<br>
   > **验证维度：** 带位姿几何与表面精度 · 渲染外观 · 修订／时间预算消融 · 资产有效性。
@@ -780,6 +790,10 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 
 编写或修改可执行代码，将其作为状态、动作、转移、物理或环境动力学模型的 Agent。
 
+- `arXiv 2026.10` **AgentGarten: Code Worlds for Evolving Agents**. [[论文]](https://arxiv.org/abs/2610.12374) [[代码]](https://github.com/MirroS-Lab/AgentGarten) [[项目]](https://mirros-lab.github.io/agent-garten) [[博客]](https://mirros.ai/blog/worlds-for-evolving-agents) — `[Method]` `[System]` · `[Training]` `[Inference]` `[Environment]` `[Verification]`
+  > 将可执行世界状态、规则与共享神经渲染器分离，编码 Agent 调用模型工具并以多相机 rollout 检查修复场景程序，部署后的 Agent 再通过玩法笔记积累经验。<br>
+  > **验证维度：** 渲染一致性／延迟 · rollout 接触、碰撞与遮挡检查 · 多轮任务表现 · 渲染器消融。
+
 - `arXiv 2026.10` **Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos**. [[论文]](https://arxiv.org/abs/2610.04432) — `[Benchmark]` · `[Data Curation]` `[Environment]` `[Verification]`
   > 评测从具身视频重建环境与机器人控制程序的 Agent，让其检查自身物理 rollout 并修订两类代码，再以隐藏的几何、动力学和任务标准评估。<br>
   > **验证维度：** 构建成功率 · 几何保真度 · 物体运动保真度 · 物理任务进展与成功率。
@@ -892,6 +906,10 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 
 代码作为控制器、策略、实验或工具动作，真实或仿真的多模态结果指导后续改写。
 
+- `arXiv 2026.10` **Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement**. [[论文]](https://arxiv.org/abs/2610.12369) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > 在离线开发中检查失败执行的视频与显式状态，修订感知／控制代码，并保留经独立验证的修改，将共享的纯代码机器人策略用于无需模型推理的在线执行。<br>
+  > **验证维度：** 保留任务成功率 · 状态估计精度 · 兼容与回归检查 · 修订验收 · 运行成本。
+
 - `arXiv 2026.10` **Agentic RSR: Real-to-Sim-to-Real through Scene Reconstruction and Execution-Grounded Robot Policies**. [[论文]](https://arxiv.org/abs/2610.10479) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
   > 连接视觉反馈驱动的 Blender 场景重建与机器人策略开发，将执行后的 RGB 观测和动作结果用于程序修订，再以固定策略测试现实迁移。<br>
   > **验证维度：** 度量重建 · 场景修订消融 · 随机化仿真成功率 · 配对实机迁移。
@@ -939,6 +957,14 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 ## 🧱 相邻基础
 
 本节收录一次性多模态代码生成、只做最终评估、依赖人工继续修改，以及尚未展示同轨迹反馈闭环的相关基础工作。
+
+- `arXiv 2026.10` **Recursive Video In-Context Learning for Agentic Robot**. [[论文]](https://arxiv.org/abs/2610.06843) [[代码]](https://github.com/BWR-hhh/rvicl) — `[Method]` · `[Inference]` `[Verification]`
+  > 让机器人 Agent 按需查询分层示范视频，与实时相机对比后调整冻结 VLA 和解析动作原语的调用，同时保留底层执行框架。<br>
+  > **验证维度：** LIBERO-PRO／Plus 成功率 · 示范访问消融 · 检索预算 · 失败驱动的再次查询。
+
+- `arXiv 2026.10` **MobiAgent: Dual-Loop Recursive Policy Self-Improvement for Long-Horizon Mobile Manipulation**. [[论文]](https://arxiv.org/abs/2610.03476) [[代码]](https://github.com/kaiknower/MobiAgent) [[项目]](https://kaiknower.github.io/mobiagent/) — `[Method]` `[System]` · `[Data Curation]` `[Training]` `[Inference]` `[Verification]`
+  > 将视觉规划与反思连接到可复用动作专家，把核验后的部署轨迹转为离线技能策略更新，而不是生成控制代码的修订。<br>
+  > **验证维度：** 长时仿真／真实机器人成功率 · 恢复／重规划 · 部署后训练轮次 · 组件消融。
 
 - `arXiv 2026.10` **BrickBench: Evaluating Agentic Brick Design**. [[论文]](https://arxiv.org/abs/2610.12452) [[代码]](https://github.com/kulits/BrickAgent) [[项目]](https://brickben.ch/) — `[Benchmark]` · `[Data Curation]` `[Environment]` `[Verification]`
   > 在规模与库存约束下评测程序化积木装配，分别检查碰撞／稳定性有效性、多视角语义一致性及人类验证的设计偏好。<br>
