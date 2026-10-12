@@ -18,12 +18,12 @@ A research map of multimodal agents that orchestrate model capabilities to build
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![Collaborate](https://img.shields.io/badge/Collaborate-Let's%20build%20together-8A2BE2.svg)](#contact-and-collaboration)
-[![Core works](https://img.shields.io/badge/Core%20works-154-blue.svg)](#paper-and-project-list)
+[![Core works](https://img.shields.io/badge/Core%20works-157-blue.svg)](#paper-and-project-list)
 
 [![English](https://img.shields.io/badge/English-default-0969DA?style=flat-square)](./README.md)
 [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-switch-6E7781?style=flat-square)](./README.zh-CN.md)
 
-**Last updated: 2026-10-11**
+**Last updated: 2026-10-12**
 
 </div>
 
@@ -176,6 +176,7 @@ The list below is a practical starting point rather than a security audit or end
 | Evidence-gated UI repair | [ReproSight](https://github.com/tungcorn/ReproSight) | Community CLI; MIT | Gives an external coding agent browser geometry, screenshots, CSS source candidates, isolated workspaces, and target/regression checks before human review; its flagship demo uses a deterministic mock provider, not a real-model accuracy benchmark. |
 | Design-to-code and design write-back | [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/) | Official MCP + skills | Lets an agent inspect design context, generate implementation code, and create or update native Figma content. |
 | Text/image-to-CAD workflows | [text-to-cad](https://github.com/earthtojake/text-to-cad) | Community skill library | Covers CAD generation and editing, browser preview, STEP/DXF/robot formats, manufacturability checks, slicing, and handoff—not only one-shot geometry generation. |
+| Versioned OpenSCAD iteration | [OpenSCAD Agent](https://github.com/iancanderson/openscad-agent) | Community Skills; README declares MIT | Writes versioned .scad files, compares current/previous PNG previews, and exports STL with OpenSCAD warning summaries; export diagnostics are not an independent geometry or manufacturing-safety check. |
 | Parametric CAD execution | [CadQuery MCP server](https://github.com/CadQuery/cadquery-contrib/tree/master/mcp-server) | Project-hosted MCP | Executes CadQuery, renders multiple SVG views, inspects topology and physical properties, and exports manufacturing formats. |
 | CQ-Editor skill-guided CAD review | [CadQuery AI Agent](https://github.com/naturecodec-stack/Agentic-AI-for-CadQuery) | Community workflow + shape templates; license unspecified | Its v4 workflow executes CadQuery, sends three rendered projections to a multimodal reviewer, and returns rejection feedback to the coder; bounded visual retries end at human approval, and missing renders can bypass review. |
 | Measurable, versioned CAD iteration | [agentcad](https://github.com/jdilla1277/agentcad) | Community CLI + optional MCP; Apache-2.0 | Executes build123d or CadQuery scripts and returns versioned STEP artifacts, geometric measurements, multi-view previews, specification checks, and geometric diffs for subsequent edits. |
@@ -190,6 +191,7 @@ The list below is a practical starting point rather than a security audit or end
 | Blender-to-Three.js 3D authoring | [3dmodel-skill](https://github.com/fletcherholt/3dmodel-skill) | Community Claude Code skill | Encodes a repeatable generate-geometry → render → inspect → fix workflow for Blender models and interactive Three.js viewers, including product, exploded, and x-ray views. |
 | Blender-to-browser handoff | [blender-to-web](https://github.com/cth9191/blender-to-web) | Community skill + runnable reference project | Preserves concept → Blender geometry → GLB export → Three.js interaction → visual comparison and verification, with editable source assets and validation evidence. |
 | Image-to-procedural Three.js | [img2threejs](https://github.com/img2threejs/img2threejs) | Community skill + deterministic scripts | Reconstructs a reference image as editable TypeScript geometry, combining specification checks with reference-versus-render review and targeted refinement. |
+| GLB-to-procedural Three.js | [mesh2threejs](https://github.com/Anbeeld/mesh2threejs) | Community CLI + Skills; MIT | Supports source-derived seeds or independent reconstruction, with matched diagnostic renders, geometric contracts, hash-bound evidence, and human final visual approval. |
 | USD scene authoring and validation | [USD Content Agents](https://github.com/NVIDIA-Omniverse/usd-content-agents) | NVIDIA-maintained skills + agents + CLI | Supports programmatic USD edits, rendered material review, physics tuning, and evidence-based validation through an interactive coding agent; individual capabilities have different maturity levels. |
 | Three.js and browser 3D | [threejs-skills](https://github.com/full-stack-skills/threejs-skills) · [threejs-game-skills](https://github.com/majidmanzarpour/threejs-game-skills) | Community skills | Encodes scene, camera, material, animation, gameplay, deterministic testing, and visual-regression workflows. |
 | Multi-engine game construction and visual QA | [3AGameFactory](https://github.com/OpenDCAI/GameFactory-3A) | Project-hosted skills + pipelines + engine adapters | Routes coding agents across asset, gameplay, and UI generation for UE5, Unity, Godot, Blender, and Three.js, then requires rendered asset review, in-engine capture, and repair before acceptance. |
@@ -254,6 +256,7 @@ The following examples make the coding loop concrete across different tasks. We 
 | Asset-generation and web-integration prompt | **Wild Atlas** — IamAlam / @_IamAlam [[author post + prompt]](https://x.com/_IamAlam/status/2107480596926939638) | Stages an encyclopedia app into its interface, consistent animal assets, and card/rotation/info-panel interactions; a rotating presentation does not establish a released full 3D scene. | Attributed community prompt |
 | Literary worlds and interactive media | **Invisible Cities** — Piotr Migdał [[author blog]](https://quesma.com/blog/invisible-cities-one-shot/) · [[Astra source]](https://github.com/stared/invisible-cities-astra) · [[Opus source]](https://github.com/stared/invisible-cities-opus-5.5) | The same open-ended brief produces two procedural Three.js interpretations of Calvino's cities; the author compares their design and execution experience, rather than providing a controlled visual-repair benchmark. | Author-reported creation case |
 | Interactive water and material prompt | **Villa Jelly** — Vib3Coded / @vib3coded [[author post + prompt]](https://x.com/vib3coded/status/2107617476473164210) | Specifies a single-file WebGPU/WGSL villa diorama with coupled waves, buoyancy, boat towing, bendable palms, and reproducible browser QA hooks; the requested checks are not a published test report. | Attributed community prompt |
+| Procedural nature and model-generated assets | **SeedThree** — SkyeShark [[source + workflow]](https://github.com/SkyeShark/SeedThree) · [[live demo]](https://skyeshark.github.io/SeedThree/) | Combines editable plant presets with generated textures/audio, PBR-map derivation, wind, LODs, and GLB export; an illustrative model-tool collaboration, not a validated botanical or autonomous-repair benchmark. | Author-reported creation case |
 
 <a id="topic-map"></a>
 ## 🗺️ Topic Map
@@ -606,6 +609,10 @@ Agents that treat vector or diagram code as an editable symbolic artifact and re
 
 Agents that produce executable graphics or CAD programs and revise them using rendered views, solver feedback, or geometric checks.
 
+- `arXiv 2026.09` **HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis**. [[paper]](https://arxiv.org/abs/2609.26793) [[code]](https://github.com/ShufanSun/harmony-release) [[project]](https://cwchenwang.github.io/harmony/) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Inference]` `[Environment]` `[Verification]`
+  > Combines VLM spatial reasoning with image, 3D, and geometry tools, revising renderer-consumed room, placement, and lighting specifications through staged reference–render critique.<br>
+  > **Verification:** Matched-view appearance · synthetic-scene geometry · placement/feedback ablations · human preference · runtime.
+
 - `arXiv 2026.10` **LiteReality-Agent: An Agentic System for Interactable 3D Indoor Scene Reconstruction**. [[paper]](https://arxiv.org/abs/2610.01863) [[project]](https://litereality.github.io/agent/) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
   > Orchestrates image and 3D generation tools around an executable Room.py workspace, revising room and object programs through calibrated photo–render comparisons, metric measurements, and collision/support checks.<br>
   > **Verification:** Matched-view fidelity · metric geometry · support/intersection checks · perceptual assessment · articulated simulation export.
@@ -906,6 +913,14 @@ Agents that create visual documents or temporal media as executable or structure
 
 Work in which code is a controller, policy, experiment, or tool action and real or simulated multimodal outcomes guide subsequent rewrites.
 
+- `arXiv 2026.10` **Adaptive Code Generation for Controlling Robots**. [[paper]](https://arxiv.org/abs/2610.09588) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > Revises Python robot workflows when fused RGB/LiDAR world-state changes trigger replanning, preserving VM instruction and variable snapshots for hot-reloaded execution.<br>
+  > **Verification:** Gazebo exploration success · syntactic executability · re-adaptation frequency · grounding/termination failures · cognition latency.
+
+- `arXiv 2026.09` **AquaCap: A Training-Free Underwater Embodied Agent with Code-as-Policy**. [[paper]](https://arxiv.org/abs/2609.23133) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > Uses sensor-derived target geometry and reliability to verify underwater action outcomes, feeding failed grasp corrections into subsequent Python programs and replanning.<br>
+  > **Verification:** Simulation success/path efficiency · perception/memory ablations · pool grasping/transport (20% each) · recovery and timeout analysis.
+
 - `arXiv 2026.10` **Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement**. [[paper]](https://arxiv.org/abs/2610.12369) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
   > Develops a shared code-only robot policy offline by inspecting failed-run videos and explicit state, revising perception/control code, and retaining independently validated changes before model-free execution.<br>
   > **Verification:** Held-out task success · State-estimation accuracy · Compatibility and regression checks · Revision acceptance · Runtime cost.
@@ -957,6 +972,10 @@ Work in which code is a controller, policy, experiment, or tool action and real 
 ## 🧱 Adjacent Foundations
 
 This section covers related foundations such as one-shot multimodal code generation, final-only evaluation, human-mediated refinement, and systems without a demonstrated same-trajectory feedback loop.
+
+- `arXiv 2026.10` **WebUIProof: Benchmarking WebUI Code Generators with UI-Agent Execution Harness**. [[paper]](https://arxiv.org/abs/2610.02617) [[code]](https://github.com/yunyuntsai/webuiproof-benchmark) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Environment]` `[Verification]`
+  > Evaluates generated Web/3D interfaces with structured interaction tests and visual UI agents, using outcome-level rewards to train generators rather than visually repair the current artifact.<br>
+  > **Verification:** Build success · interaction completion · element coverage · human–agent agreement · evaluator step-budget sensitivity.
 
 - `arXiv 2026.10` **Recursive Video In-Context Learning for Agentic Robot**. [[paper]](https://arxiv.org/abs/2610.06843) [[code]](https://github.com/BWR-hhh/rvicl) — `[Method]` · `[Inference]` `[Verification]`
   > Lets robot agents query a hierarchical demonstration on demand and compare it with live camera views to adapt frozen VLA and analytic primitive calls, while retaining the underlying execution harness.<br>
