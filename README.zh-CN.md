@@ -18,12 +18,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![一起合作](https://img.shields.io/badge/%E4%B8%80%E8%B5%B7%E5%90%88%E4%BD%9C-%E6%AC%A2%E8%BF%8E%E8%81%94%E7%B3%BB-8A2BE2.svg)](#contact-and-collaboration)
-[![Core works](https://img.shields.io/badge/Core%20works-161-blue.svg)](#paper-and-project-list)
+[![Core works](https://img.shields.io/badge/Core%20works-162-blue.svg)](#paper-and-project-list)
 
 [![English](https://img.shields.io/badge/English-default-6E7781?style=flat-square)](./README.md)
 [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%E5%BD%93%E5%89%8D-0969DA?style=flat-square)](./README.zh-CN.md)
 
-**最后更新：2026-10-13**
+**最后更新：2026-10-14**
 
 </div>
 
@@ -201,6 +201,7 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 | Unity 开发 | [Unity Agent Skills](https://github.com/Unity-Technologies/skills) | 官方 Skills + CLI | 覆盖项目设置、包、UI、Shader、验证以及可重复的编辑器／构建操作。 |
 | 浏览器游戏试玩测试 | [Game Playtest](https://github.com/openai/plugins/blob/main/plugins/game-studio/skills/game-playtest/SKILL.md) | OpenAI 维护的 Skill | 组织输入与场景切换测试、基于截图的 Canvas/WebGL 检查、HUD 与相机检查，并输出可复现问题报告，供下一轮修复使用。 |
 | Godot 开发 | [Godot MCP](https://github.com/hybridindie/godot-mcp) | 社区 MCP | 支持场景与脚本、项目运行、输入驱动、截图、重放、性能分析和导出。 |
+| Godot 构建与运行验证 | [Godot Agent Loop](https://github.com/beremaran/godot-agent-loop) | 社区 MCP + 构建／调试／验证／交付 Skills | 以 MCP 图像内容返回运行时 PNG，提供有界输入场景、测试及独立验证；Skills 区分保存的项目修改与临时试玩状态。截图需要带显示上下文的 Godot 4.7+ 运行环境。 |
 | Godot 视觉试玩 | [Ziva 试玩工作流](https://ziva.sh/blogs/ai-agent-playtest-godot-game) · [试玩文档](https://ziva.sh/docs/playtest) | 官方文档／博客 + 商业插件 | 完整试玩 Agent 检查现场状态与截图，返回结论、复现步骤及重放证据；它本身不编辑项目，修复需交回开发 Agent。厂商演示不等于独立基准证据。 |
 | Unreal 开发 | [Unreal MCP](https://github.com/ZiggyMar/unreal-mcp) | 社区 MCP | 以索引化、Token 高效的方式检查和编辑 Unreal 项目与 Blueprint。 |
 | Diagram-as-code | [Mermaid MCP server](https://mermaid.ai/docs/ai/mcp-server) | 官方 MCP | 验证 Diagram 语法并返回可供检查与修复的 SVG/PNG 渲染。 |
@@ -249,6 +250,7 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 | 文本、草图与扫描到 CAD | **CAD-Assistant** — Mallis et al. [[项目 + 视频]](https://cadassistant.github.io/) | Agent 编写并执行 FreeCAD 动作、观察不断变化的模型，并依据手绘命令或 3D Scan 证据调整后续代码。 | 闭环研究 Demo |
 | 程序化 3D | **3DCodeBench** — 3DCodeBench team [[交互式 Gallery]](https://www.3dcodebench.com/) | Agent 执行 Blender 程序、读取错误、重试、多轮细化并视觉自评；网站提供可拖拽 3D 示例。 | 闭环研究 Demo |
 | 持续游戏生成 | **Play2Code gallery** — GUI Agents for Continual Game Generation [[可玩 Demo]](https://continual-game-generation.vercel.app/) | GUI Agent 游玩生成的浏览器游戏，将体验轨迹返回给 Coding Agent，后者继续修改游戏。 | 闭环研究 Demo |
+| 浏览器游戏训练产物 | **GameGoCoder 3.8 gallery** — Yang et al. [[试玩 + 源码归档]](https://haoyue-yang.github.io/GameGo/games/) | 可检查精选生成游戏及其可下载源码归档；Gallery 是所选 13 项任务中的 12 个成功产物，不是未筛选的完整评测集。 | 精选研究产物 |
 | 游戏引擎编程与自验证 | **GPT-6 Astra × Playco Playbot** — OpenAI & Playco [[官方案例]](https://openai.com/index/playco-game-prototyping-with-astra/) | Playbot 连接 Unity 与 Godot；Astra 编辑场景、游玩并测试游戏、验证修改、发现 Bug，再继续改进可玩产物。OpenAI 报告的客户结果为人工修复减少 50%。 | 官方产品案例 |
 | 游戏移植与 GPU 修复 | **Speedrun your game port with agentic coding** — Apple [[WWDC26 视频 + Transcript]](https://developer.apple.com/videos/play/wwdc2026/357/) | Agent 移植 MiniEngine、捕获并检查 GPU Trace、修复明显错误的光照和纹理，再依据参考 Capture 验证修复后的渲染。 | 官方工程工作流 |
 | 可执行世界模型 | **TWIN interactive replay** — TWIN team [[项目 + Replay]](https://arc-agi-3-twin.vercel.app/) | Agent 为未知游戏编写 Python Twin，对照交互历史验证状态转移，修复首个不一致，并在修订后的模型中规划。 | 闭环研究 Demo |
@@ -812,6 +814,10 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 
 编写或修改可执行代码，将其作为状态、动作、转移、物理或环境动力学模型的 Agent。
 
+- `arXiv 2026.09` **Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise**. [[论文]](https://arxiv.org/abs/2609.36593) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > 组织 Meshy 资产生成与专门的 Genesis 代码 Writer，由独立 Critic 检查帧、视频及物理记录，再结合可复用 Debug Cards 将诊断分派为针对性的源代码修复。<br>
+  > **验证维度：** 可执行仿真 · Agent 评判的物理需求 · 视频质量 · 盲测人类偏好 · 角色／经验卡消融，不等于真实世界有效性认证。
+
 - `arXiv 2026.10` **Awomo-SimDataEngine: Agentic Simulation-ReadyWorld Generation**. [[论文]](https://arxiv.org/abs/2610.02274) — `[Method]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Environment]` `[Verification]`
   > 通过记录证据的 Harness 组织资产、场景模型，从仿真运动视频点评修复 URDF 关节，并在机器人示范合成前修订世界构建结果。<br>
   > **验证维度：** 零件几何 · 固定几何的关节绑定 · 场景配准／支撑 · 仿真器导出／重置检查 · 跨仿真器策略数据效用，未测量真实机器人迁移。
@@ -991,6 +997,22 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 ## 🧱 相邻基础
 
 本节收录一次性多模态代码生成、只做最终评估、依赖人工继续修改，以及尚未展示同轨迹反馈闭环的相关基础工作。
+
+- `arXiv 2026.09` **SWE-Game: Can Coding Agents Build the Games We Want?**. [[论文]](https://arxiv.org/abs/2609.33678) — `[Benchmark]` · `[Data Curation]` `[Environment]` `[Verification]`
+  > 以可执行参考游戏评测构建、修复、补全及 Godot 到 Unity 移植，将最终状态／回放检查与独立视觉量表、配对无输入对照结合。<br>
+  > **验证维度：** 需求对应的机制 · 依赖玩家动作的可玩性 · 修复恢复／行为保持 · 移植就绪 · 视觉判定与人类一致性。
+
+- `arXiv 2026.10` **OpenGameEval: Benchmarking Agentic Programming and Exploration in a Stateful Game Engine**. [[论文]](https://arxiv.org/abs/2610.02563) [[项目]](https://github.com/Roblox/open-game-eval) — `[Benchmark]` `[Empirical Study]` · `[Environment]` `[Verification]` `[Trajectory Analysis]`
+  > 通过状态读取与编辑工具测量 Roblox 场景／脚本开发，将修改前的依赖探索与最终场景、模拟客户端—服务端玩法验证分别分析。<br>
+  > **验证维度：** 场景断言 · 运行时行为 · 重复尝试可靠性 · 依赖覆盖 · 空操作 Agent 检查有效性。
+
+- `arXiv 2026.10` **GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets**. [[论文]](https://arxiv.org/abs/2610.06910) [[项目]](https://github.com/Haoyue-Yang/GameGo) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Verification]`
+  > 将游戏种子转换为精简且有资产依据的需求及可执行 React 开发轨迹，用于模型训练，再对完成的游戏独立开展多模态试玩与质量评估。<br>
+  > **验证维度：** 构建／运行准入 · 需求满足 · 视觉／交互质量 · 人类偏好 · 任务压缩与训练消融。
+
+- `arXiv 2026.10` **BT-Agent: Deploying Onboard Robot Agents with Behavior Trees and Multi-Fidelity Evaluation**. [[论文]](https://arxiv.org/abs/2610.13862) — `[Method]` `[Benchmark]` · `[Inference]` `[Environment]` `[Verification]`
+  > 通过固定行为树 Skill 组织感知与物理动作工具，以结构化失败反馈重试或改变任务决策，本地 Guard 则监督经操作员批准的机载运动。<br>
+  > **验证维度：** 文本／Habitat 任务对齐 · 感知与运动失败 · 真机任务完成 · Guard 中断 · 接口／反馈消融。
 
 - `arXiv 2026.09` **AssemblyWorld: Rethinking 3D Assembly with General-Purpose Agents**. [[论文]](https://arxiv.org/abs/2609.40353) [[项目]](https://assemblyworld.github.io/) — `[Benchmark]` · `[Environment]` `[Verification]` `[Trajectory Analysis]`
   > 研究 Agent 查看渲染视图、通过 MCP 工具修订既有零件位姿而非编写构建程序的装配任务，揭示近似装配与几何精度之间的差距。<br>
