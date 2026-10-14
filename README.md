@@ -18,12 +18,12 @@ A research map of multimodal agents that orchestrate model capabilities to build
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![Collaborate](https://img.shields.io/badge/Collaborate-Let's%20build%20together-8A2BE2.svg)](#contact-and-collaboration)
-[![Core works](https://img.shields.io/badge/Core%20works-159-blue.svg)](#paper-and-project-list)
+[![Core works](https://img.shields.io/badge/Core%20works-164-blue.svg)](#paper-and-project-list)
 
 [![English](https://img.shields.io/badge/English-default-0969DA?style=flat-square)](./README.md)
 [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-switch-6E7781?style=flat-square)](./README.zh-CN.md)
 
-**Last updated: 2026-10-13**
+**Last updated: 2026-10-14**
 
 </div>
 
@@ -177,6 +177,8 @@ The list below is a practical starting point rather than a security audit or end
 | Design-to-code and design write-back | [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/) | Official MCP + skills | Lets an agent inspect design context, generate implementation code, and create or update native Figma content. |
 | Text/image-to-CAD workflows | [text-to-cad](https://github.com/earthtojake/text-to-cad) | Community skill library | Covers CAD generation and editing, browser preview, STEP/DXF/robot formats, manufacturability checks, slicing, and handoff—not only one-shot geometry generation. |
 | Versioned OpenSCAD iteration | [OpenSCAD Agent](https://github.com/iancanderson/openscad-agent) | Community Skills; README declares MIT | Writes versioned .scad files, compares current/previous PNG previews, and exports STL with OpenSCAD warning summaries; export diagnostics are not an independent geometry or manufacturing-safety check. |
+| Evidence-bound OpenSCAD review | [OpenSCAD Workbench](https://github.com/geraldsummers/openscad-workbench) | Community workbench + CLI; MIT | Combines mesh/specification checks with ten rendered views, binding agent-written visual inspection and human-facing presentation to the current artifact digest; these checks do not establish fabrication quality or physical safety. |
+| In-app FreeCAD authoring and inspection | [CADAgent (toreleon)](https://github.com/toreleon/CADAgent) | Community FreeCAD fork; LGPL-2.1-or-later agent modules | Adds a chat-driven Python/.FCStd workflow, reference-image attachments, measured geometry queries, and specification gates; documented capabilities are not a benchmark of autonomous visual repair. |
 | Parametric CAD execution | [CadQuery MCP server](https://github.com/CadQuery/cadquery-contrib/tree/master/mcp-server) | Project-hosted MCP | Executes CadQuery, renders multiple SVG views, inspects topology and physical properties, and exports manufacturing formats. |
 | CQ-Editor skill-guided CAD review | [CadQuery AI Agent](https://github.com/naturecodec-stack/Agentic-AI-for-CadQuery) | Community workflow + shape templates; license unspecified | Its v4 workflow executes CadQuery, sends three rendered projections to a multimodal reviewer, and returns rejection feedback to the coder; bounded visual retries end at human approval, and missing renders can bypass review. |
 | Measurable, versioned CAD iteration | [agentcad](https://github.com/jdilla1277/agentcad) | Community CLI + optional MCP; Apache-2.0 | Executes build123d or CadQuery scripts and returns versioned STEP artifacts, geometric measurements, multi-view previews, specification checks, and geometric diffs for subsequent edits. |
@@ -199,6 +201,7 @@ The list below is a practical starting point rather than a security audit or end
 | Unity development | [Unity Agent Skills](https://github.com/Unity-Technologies/skills) | Official skills + CLI | Covers project setup, packages, UI, shaders, validation, and repeatable editor/build operations. |
 | Browser-game playtesting | [Game Playtest](https://github.com/openai/plugins/blob/main/plugins/game-studio/skills/game-playtest/SKILL.md) | OpenAI-maintained skill | Organizes input and scene-transition tests, screenshot-based canvas/WebGL review, HUD and camera checks, and reproducible issue reports for the next repair pass. |
 | Godot development | [Godot MCP](https://github.com/hybridindie/godot-mcp) | Community MCP | Supports scenes and scripts, running projects, input driving, screenshots, replays, profiling, and export. |
+| Godot authoring and runtime verification | [Godot Agent Loop](https://github.com/beremaran/godot-agent-loop) | Community MCP + build/debug/verify/ship skills | Returns runtime PNGs as MCP image content, with bounded input scenarios, tests, and independent verification; its skills distinguish saved project edits from ephemeral playtest state. Screenshots require a headed Godot 4.7+ runtime. |
 | Godot visual playtesting | [Ziva playtesting workflow](https://ziva.sh/blogs/ai-agent-playtest-godot-game) · [playtesting docs](https://ziva.sh/docs/playtest) | Official docs/blog + commercial plugin | The full playtest agent inspects live state and screenshots, returning verdicts, reproduction steps, and replay evidence; it does not edit the project, so repairs must be handed back to the development agent. Vendor demonstrations are not independent benchmark evidence. |
 | Unreal development | [Unreal MCP](https://github.com/ZiggyMar/unreal-mcp) | Community MCP | Provides indexed, token-efficient inspection and editing of Unreal projects and Blueprints. |
 | Diagram-as-code | [Mermaid MCP server](https://mermaid.ai/docs/ai/mcp-server) | Official MCP | Validates diagram syntax and returns SVG/PNG renders that can be inspected and repaired. |
@@ -247,6 +250,7 @@ The following examples make the coding loop concrete across different tasks. We 
 | CAD from text, sketches, and scans | **CAD-Assistant** — Mallis et al. [[project + video]](https://cadassistant.github.io/) | The agent writes and executes FreeCAD actions, observes the evolving model, and adapts later code to hand-drawn commands or 3D scan evidence. | Closed-loop research demo |
 | Procedural 3D | **3DCodeBench** — 3DCodeBench team [[interactive gallery]](https://www.3dcodebench.com/) | Agents execute Blender programs, read errors, retry, refine across turns, and visually critique procedural objects; the site includes draggable 3D examples. | Closed-loop research demo |
 | Continual game generation | **Play2Code gallery** — GUI Agents for Continual Game Generation [[playable demos]](https://continual-game-generation.vercel.app/) | A GUI agent plays generated browser games and returns experience traces to a coding agent, which continues modifying the game. | Closed-loop research demo |
+| Browser-game training artifacts | **GameGoCoder 3.8 gallery** — Yang et al. [[play + source archives]](https://haoyue-yang.github.io/GameGo/games/) | Inspect selected generated games and their downloadable source archives; the gallery contains 12 successful outputs from a selected 13-task set, not an unfiltered evaluation suite. | Selected research artifacts |
 | Game-engine coding and self-validation | **GPT-6 Astra × Playco Playbot** — OpenAI & Playco [[official case]](https://openai.com/index/playco-game-prototyping-with-astra/) | Playbot connects Unity and Godot; Astra edits scenes, plays and tests the game, validates changes, finds bugs, and improves the playable artifact. OpenAI reports a customer-observed 50% reduction in manual fixes. | Official product case |
 | Game porting and GPU repair | **Speedrun your game port with agentic coding** — Apple [[WWDC26 video + transcript]](https://developer.apple.com/videos/play/wwdc2026/357/) | The agent ports MiniEngine, captures and inspects GPU traces, fixes visibly incorrect lighting and textures, and validates the corrected render against reference captures. | Official engineering workflow |
 | Executable world models | **TWIN interactive replay** — TWIN team [[project + replay]](https://arc-agi-3-twin.vercel.app/) | The agent writes a Python twin of an unknown game, validates transitions against interaction history, repairs the first mismatch, and plans inside the revised model. | Closed-loop research demo |
@@ -257,6 +261,7 @@ The following examples make the coding loop concrete across different tasks. We 
 | Literary worlds and interactive media | **Invisible Cities** — Piotr Migdał [[author blog]](https://quesma.com/blog/invisible-cities-one-shot/) · [[Astra source]](https://github.com/stared/invisible-cities-astra) · [[Opus source]](https://github.com/stared/invisible-cities-opus-5.5) | The same open-ended brief produces two procedural Three.js interpretations of Calvino's cities; the author compares their design and execution experience, rather than providing a controlled visual-repair benchmark. | Author-reported creation case |
 | Interactive water and material prompt | **Villa Jelly** — Vib3Coded / @vib3coded [[author post + prompt]](https://x.com/vib3coded/status/2107617476473164210) | Specifies a single-file WebGPU/WGSL villa diorama with coupled waves, buoyancy, boat towing, bendable palms, and reproducible browser QA hooks; the requested checks are not a published test report. | Attributed community prompt |
 | Procedural nature and model-generated assets | **SeedThree** — SkyeShark [[source + workflow]](https://github.com/SkyeShark/SeedThree) · [[live demo]](https://skyeshark.github.io/SeedThree/) | Combines editable plant presets with generated textures/audio, PBR-map derivation, wind, LODs, and GLB export; an illustrative model-tool collaboration, not a validated botanical or autonomous-repair benchmark. | Author-reported creation case |
+| Character modeling and walking animation | **Blender goblin comparison** — Cong Le / @CongLe [[author post]](https://x.com/CongLe/status/2109268147068862675) | Juxtaposes six model sessions given the same goblin-and-walk brief and 15-minute budget; the author also reports failed walking outputs, without publishing code or audited generation trajectories. | Author-reported comparison demo |
 
 <a id="topic-map"></a>
 ## 🗺️ Topic Map
@@ -446,6 +451,10 @@ Repository- or application-level agents that reproduce visual failures, localize
 
 Agents and benchmarks for repeatedly generating, deploying, viewing, interacting with, and repairing websites or applications.
 
+- `arXiv 2026.10` **SoftwareGym: Scaling Computer-Use Agent Training with Diverse Synthesized Software Environments**. [[paper]](https://arxiv.org/abs/2610.12611) [[code]](https://github.com/MrKiing-Jin/SoftwareGym) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Environment]` `[Verification]`
+  > Synthesizes native Avalonia applications, using screenshot-grounded GUI test trajectories to repair their source across fixed-case rounds before collecting computer-use training data.<br>
+  > **Verification:** Build/launch validity · fixed-case GUI completion and repair ablations · design-token fidelity · 120-task SoftwareGym-Bench · transfer on a 244-task OSWorld subset.
+
 - `arXiv 2026.10` **TeleGen: Improving LLM-Based Web Application Generation via Runtime Telemetry**. [[paper]](https://arxiv.org/abs/2610.04981) [[code]](https://github.com/commoluo/TeleGen) — `[Method]` · `[Inference]` `[Verification]`
   > Repairs generated web applications with compressed runtime telemetry and task feedback, combining screenshot-based WebVoyager judgments with code revision in its WebGen-Bench configuration.<br>
   > **Verification:** UI task success · telemetry/no-telemetry repair ablations · test Pass@2 · judgment audit · context cost.
@@ -612,6 +621,14 @@ Agents that treat vector or diagram code as an editable symbolic artifact and re
 ### 6. 3D Graphics, CAD, and Scene Generation
 
 Agents that produce executable graphics or CAD programs and revise them using rendered views, solver feedback, or geometric checks.
+
+- `arXiv 2026.10` **Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark**. [[paper]](https://arxiv.org/abs/2610.13947) [[project]](https://physicalvision.github.io/artisan/) — `[Method]` `[Benchmark]` · `[Inference]` `[Environment]` `[Verification]`
+  > Artisan separates design, coding, and review, revising Python asset programs from Blender views and MuJoCo motion/stability reports while preserving intended articulation and functions.<br>
+  > **Verification:** Geometry/appearance · joint-motion collision · gravity stability · mass/material estimates · simulated robot-task utility · interactive human assessment.
+
+- `arXiv 2026.10` **Task-Adaptive Grounded 3D-Programmers Using 2D VLMs**. [[paper]](https://arxiv.org/abs/2610.02021) — `[Method]` · `[Inference]` `[Environment]` `[Verification]`
+  > 3D-Prog grounds Python/OpenUSD edits in canonical multiview coordinates, returning task-specific diagnostic visualizations and judge critiques for subsequent asset-generation and editing rounds.<br>
+  > **Verification:** Geometric reconstruction · segmentation/detection · articulation axes · coordinate/feedback ablations · small-scale task and user evaluations.
 
 - `arXiv 2026.09` **HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis**. [[paper]](https://arxiv.org/abs/2609.26793) [[code]](https://github.com/ShufanSun/harmony-release) [[project]](https://cwchenwang.github.io/harmony/) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Inference]` `[Environment]` `[Verification]`
   > Combines VLM spatial reasoning with image, 3D, and geometry tools, revising renderer-consumed room, placement, and lighting specifications through staged reference–render critique.<br>
@@ -801,6 +818,14 @@ Agents and benchmarks that require generated games or visual programs to be laun
 
 Agents that write or revise executable code as a model of state, action, transition, physics, or environment dynamics.
 
+- `arXiv 2026.09` **Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise**. [[paper]](https://arxiv.org/abs/2609.36593) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > Orchestrates Meshy assets and specialized Genesis code writers, using an independent critic's frames, video, and physical records to route targeted source repairs with reusable Debug Cards.<br>
+  > **Verification:** Executable simulation · agent-assessed physical requirements · video quality · blinded human preference · role/card ablations, not certified real-world validity.
+
+- `arXiv 2026.10` **Awomo-SimDataEngine: Agentic Simulation-ReadyWorld Generation**. [[paper]](https://arxiv.org/abs/2610.02274) — `[Method]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Environment]` `[Verification]`
+  > Orchestrates asset and scene models through an evidence-tracking harness, repairing URDF joints from simulated-motion video critiques and revising world construction before robot-demonstration synthesis.<br>
+  > **Verification:** Part geometry · fixed-geometry joint binding · scene registration/support · simulator export/reset checks · cross-simulator policy-data utility, not measured real-robot transfer.
+
 - `arXiv 2026.10` **AgentGarten: Code Worlds for Evolving Agents**. [[paper]](https://arxiv.org/abs/2610.12374) [[code]](https://github.com/MirroS-Lab/AgentGarten) [[project]](https://mirros-lab.github.io/agent-garten) [[blog]](https://mirros.ai/blog/worlds-for-evolving-agents) — `[Method]` `[System]` · `[Training]` `[Inference]` `[Environment]` `[Verification]`
   > Separates executable world state and rules from a shared neural renderer, with coding agents using model tools and multi-camera rollout checks to repair scene programs before deployed agents evolve their playbooks.<br>
   > **Verification:** Render consistency/latency · rollout contact, collision, and occlusion checks · multi-round task outcomes · renderer ablations.
@@ -984,6 +1009,30 @@ This section covers related foundations such as one-shot multimodal code generat
 - `arXiv 2026.10` **WorldBench: Evaluating LLMs on Three.js Voxel World Generation**. [[paper]](https://arxiv.org/abs/2610.10622) [[code]](https://github.com/KrishBakshi/worldbench) — `[Benchmark]` `[Empirical Study]` · `[Verification]`
   > Audits generated Three.js worlds by combining source-grounded code evidence with active visual exploration and feature-removal tests; generators receive crash diagnostics, not rendered views or grading feedback.<br>
   > **Verification:** Code–frame agreement · view-dependent coverage · mutation-test false credit · temporal/pixel checks · judge repeatability.
+
+- `arXiv 2026.09` **SWE-Game: Can Coding Agents Build the Games We Want?**. [[paper]](https://arxiv.org/abs/2609.33678) — `[Benchmark]` · `[Data Curation]` `[Environment]` `[Verification]`
+  > Evaluates construction, repair, completion, and Godot-to-Unity porting from executable reference games, combining final state/replay checks with a separate visual rubric and matched no-input controls.<br>
+  > **Verification:** Required mechanics · action-dependent playability · repair restoration/preservation · port readiness · visual–human agreement.
+
+- `arXiv 2026.10` **OpenGameEval: Benchmarking Agentic Programming and Exploration in a Stateful Game Engine**. [[paper]](https://arxiv.org/abs/2610.02563) [[project]](https://github.com/Roblox/open-game-eval) — `[Benchmark]` `[Empirical Study]` · `[Environment]` `[Verification]` `[Trajectory Analysis]`
+  > Measures Roblox scene/script authoring through state-reading and editing tools, separating pre-edit dependency exploration from final scene and simulated client–server gameplay verification.<br>
+  > **Verification:** Scene assertions · play-time behavior · repeated-attempt reliability · dependency coverage · null-agent check validity.
+
+- `arXiv 2026.10` **GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets**. [[paper]](https://arxiv.org/abs/2610.06910) [[project]](https://github.com/Haoyue-Yang/GameGo) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Verification]`
+  > Turns game seeds into compact, asset-grounded requirements and executable React development trajectories for training, with separate multimodal play-and-quality evaluation of completed games.<br>
+  > **Verification:** Build/runtime admission · requirement satisfaction · visual/interaction quality · human preference · task-compression and training ablations.
+
+- `arXiv 2026.10` **BT-Agent: Deploying Onboard Robot Agents with Behavior Trees and Multi-Fidelity Evaluation**. [[paper]](https://arxiv.org/abs/2610.13862) — `[Method]` `[Benchmark]` · `[Inference]` `[Environment]` `[Verification]`
+  > Composes perception and physical-action tools through fixed behavior-tree skills, using structured failures to retry or change task decisions while local guards supervise operator-approved onboard motion.<br>
+  > **Verification:** Text/Habitat task alignment · perception and motion failures · real-robot task completion · guard interruption · interface/feedback ablations.
+
+- `arXiv 2026.09` **AssemblyWorld: Rethinking 3D Assembly with General-Purpose Agents**. [[paper]](https://arxiv.org/abs/2609.40353) [[project]](https://assemblyworld.github.io/) — `[Benchmark]` · `[Environment]` `[Verification]` `[Trajectory Analysis]`
+  > Studies agents that inspect rendered views and revise fixed-part poses through MCP tools rather than authoring construction programs, exposing the gap between approximate assembly and geometric precision.<br>
+  > **Verification:** Part accuracy · complete-assembly success · reference/viewpoint effects · interaction/failure trajectories · free-space geometry, not physical stability.
+
+- `arXiv 2026.09` **ConCAD: Constraint-Aware Image-to-CAD Generation with Dual-Granularity Rewards**. [[paper]](https://arxiv.org/abs/2609.34494) — `[Method]` · `[Training]` `[Verification]`
+  > Trains image-to-CadQuery generation with code-constraint and executed-geometry rewards, evaluating relational design intent on B-reps rather than iteratively repairing the current artifact from visual feedback.<br>
+  > **Verification:** Execution validity · volumetric overlap · Chamfer distance · B-rep constraint satisfaction · reward-component ablations.
 
 - `arXiv 2026.10` **WebUIProof: Benchmarking WebUI Code Generators with UI-Agent Execution Harness**. [[paper]](https://arxiv.org/abs/2610.02617) [[code]](https://github.com/yunyuntsai/webuiproof-benchmark) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Environment]` `[Verification]`
   > Evaluates generated Web/3D interfaces with structured interaction tests and visual UI agents, using outcome-level rewards to train generators rather than visually repair the current artifact.<br>

@@ -18,12 +18,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![一起合作](https://img.shields.io/badge/%E4%B8%80%E8%B5%B7%E5%90%88%E4%BD%9C-%E6%AC%A2%E8%BF%8E%E8%81%94%E7%B3%BB-8A2BE2.svg)](#contact-and-collaboration)
-[![Core works](https://img.shields.io/badge/Core%20works-159-blue.svg)](#paper-and-project-list)
+[![Core works](https://img.shields.io/badge/Core%20works-164-blue.svg)](#paper-and-project-list)
 
 [![English](https://img.shields.io/badge/English-default-6E7781?style=flat-square)](./README.md)
 [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%E5%BD%93%E5%89%8D-0969DA?style=flat-square)](./README.zh-CN.md)
 
-**最后更新：2026-10-13**
+**最后更新：2026-10-14**
 
 </div>
 
@@ -177,6 +177,8 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 | 设计到代码与设计回写 | [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/) | 官方 MCP + Skills | 允许 Agent 检查设计上下文、生成实现代码，并创建或更新原生 Figma 内容。 |
 | 文本／图像到 CAD | [text-to-cad](https://github.com/earthtojake/text-to-cad) | 社区 Skill 库 | 覆盖 CAD 生成与编辑、浏览器预览、STEP/DXF/机器人格式、可制造性检查、切片和交付，而不只是一次性几何生成。 |
 | 版本化 OpenSCAD 迭代 | [OpenSCAD Agent](https://github.com/iancanderson/openscad-agent) | 社区 Skills；README 声明 MIT | 编写版本化 .scad，对照当前／上一轮 PNG，并导出含 OpenSCAD 警告摘要的 STL；导出诊断不等于独立几何或制造安全检查。 |
+| 证据绑定的 OpenSCAD 审查 | [OpenSCAD Workbench](https://github.com/geraldsummers/openscad-workbench) | 社区工作台 + CLI；MIT | 将网格／规格检查与十个渲染视角结合，把 Agent 填写的视觉检查和面向人的展示绑定到当前产物摘要；这些检查不证明制造质量或物理安全。 |
+| FreeCAD 内置创作与检查 | [CADAgent (toreleon)](https://github.com/toreleon/CADAgent) | 社区 FreeCAD 分支；Agent 模块 LGPL-2.1-or-later | 提供对话驱动的 Python／.FCStd 工作流、参考图附件、实测几何查询和规格检查；文档能力不等于自主视觉修复基准结果。 |
 | 参数化 CAD 执行 | [CadQuery MCP server](https://github.com/CadQuery/cadquery-contrib/tree/master/mcp-server) | 项目托管 MCP | 执行 CadQuery、渲染多视图 SVG、检查拓扑与物理属性，并导出制造格式。 |
 | 可测量、可追踪版本的 CAD 迭代 | [agentcad](https://github.com/jdilla1277/agentcad) | 社区 CLI + 可选 MCP；Apache-2.0 | 执行 build123d 或 CadQuery 脚本，返回带版本的 STEP 产物、几何测量、多视图预览、规格检查和几何差异，供后续修改使用。 |
 | 参数化 CAD 工作台与审查 | [AgentCAD (n3r)](https://github.com/n3r/AgentCAD) | 社区工作台 + HTTP/MCP；Apache-2.0 | 构建 build123d 零件与装配，以 MCP 图像内容返回多视图 PNG，并提供实测设计规格结果与几何感知的审查流程。 |
@@ -199,6 +201,7 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 | Unity 开发 | [Unity Agent Skills](https://github.com/Unity-Technologies/skills) | 官方 Skills + CLI | 覆盖项目设置、包、UI、Shader、验证以及可重复的编辑器／构建操作。 |
 | 浏览器游戏试玩测试 | [Game Playtest](https://github.com/openai/plugins/blob/main/plugins/game-studio/skills/game-playtest/SKILL.md) | OpenAI 维护的 Skill | 组织输入与场景切换测试、基于截图的 Canvas/WebGL 检查、HUD 与相机检查，并输出可复现问题报告，供下一轮修复使用。 |
 | Godot 开发 | [Godot MCP](https://github.com/hybridindie/godot-mcp) | 社区 MCP | 支持场景与脚本、项目运行、输入驱动、截图、重放、性能分析和导出。 |
+| Godot 构建与运行验证 | [Godot Agent Loop](https://github.com/beremaran/godot-agent-loop) | 社区 MCP + 构建／调试／验证／交付 Skills | 以 MCP 图像内容返回运行时 PNG，提供有界输入场景、测试及独立验证；Skills 区分保存的项目修改与临时试玩状态。截图需要带显示上下文的 Godot 4.7+ 运行环境。 |
 | Godot 视觉试玩 | [Ziva 试玩工作流](https://ziva.sh/blogs/ai-agent-playtest-godot-game) · [试玩文档](https://ziva.sh/docs/playtest) | 官方文档／博客 + 商业插件 | 完整试玩 Agent 检查现场状态与截图，返回结论、复现步骤及重放证据；它本身不编辑项目，修复需交回开发 Agent。厂商演示不等于独立基准证据。 |
 | Unreal 开发 | [Unreal MCP](https://github.com/ZiggyMar/unreal-mcp) | 社区 MCP | 以索引化、Token 高效的方式检查和编辑 Unreal 项目与 Blueprint。 |
 | Diagram-as-code | [Mermaid MCP server](https://mermaid.ai/docs/ai/mcp-server) | 官方 MCP | 验证 Diagram 语法并返回可供检查与修复的 SVG/PNG 渲染。 |
@@ -247,6 +250,7 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 | 文本、草图与扫描到 CAD | **CAD-Assistant** — Mallis et al. [[项目 + 视频]](https://cadassistant.github.io/) | Agent 编写并执行 FreeCAD 动作、观察不断变化的模型，并依据手绘命令或 3D Scan 证据调整后续代码。 | 闭环研究 Demo |
 | 程序化 3D | **3DCodeBench** — 3DCodeBench team [[交互式 Gallery]](https://www.3dcodebench.com/) | Agent 执行 Blender 程序、读取错误、重试、多轮细化并视觉自评；网站提供可拖拽 3D 示例。 | 闭环研究 Demo |
 | 持续游戏生成 | **Play2Code gallery** — GUI Agents for Continual Game Generation [[可玩 Demo]](https://continual-game-generation.vercel.app/) | GUI Agent 游玩生成的浏览器游戏，将体验轨迹返回给 Coding Agent，后者继续修改游戏。 | 闭环研究 Demo |
+| 浏览器游戏训练产物 | **GameGoCoder 3.8 gallery** — Yang et al. [[试玩 + 源码归档]](https://haoyue-yang.github.io/GameGo/games/) | 可检查精选生成游戏及其可下载源码归档；Gallery 是所选 13 项任务中的 12 个成功产物，不是未筛选的完整评测集。 | 精选研究产物 |
 | 游戏引擎编程与自验证 | **GPT-6 Astra × Playco Playbot** — OpenAI & Playco [[官方案例]](https://openai.com/index/playco-game-prototyping-with-astra/) | Playbot 连接 Unity 与 Godot；Astra 编辑场景、游玩并测试游戏、验证修改、发现 Bug，再继续改进可玩产物。OpenAI 报告的客户结果为人工修复减少 50%。 | 官方产品案例 |
 | 游戏移植与 GPU 修复 | **Speedrun your game port with agentic coding** — Apple [[WWDC26 视频 + Transcript]](https://developer.apple.com/videos/play/wwdc2026/357/) | Agent 移植 MiniEngine、捕获并检查 GPU Trace、修复明显错误的光照和纹理，再依据参考 Capture 验证修复后的渲染。 | 官方工程工作流 |
 | 可执行世界模型 | **TWIN interactive replay** — TWIN team [[项目 + Replay]](https://arc-agi-3-twin.vercel.app/) | Agent 为未知游戏编写 Python Twin，对照交互历史验证状态转移，修复首个不一致，并在修订后的模型中规划。 | 闭环研究 Demo |
@@ -257,6 +261,7 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 | 文学世界与交互媒体 | **Invisible Cities** — Piotr Migdał [[作者博客]](https://quesma.com/blog/invisible-cities-one-shot/) · [[Astra 源码]](https://github.com/stared/invisible-cities-astra) · [[Opus 源码]](https://github.com/stared/invisible-cities-opus-5.5) | 同一个开放式需求生成卡尔维诺城市的两种程序化 Three.js 演绎；作者比较设计与执行体验，而非提供受控的视觉修复基准。 | 作者报告的创作案例 |
 | 交互水面与材质提示词 | **Villa Jelly** — Vib3Coded / @vib3coded [[作者原帖 + 提示词]](https://x.com/vib3coded/status/2107617476473164210) | 指定单文件 WebGPU/WGSL 别墅微缩场景，结合波浪、浮力、拖船、可弯棕榈树与可重复的浏览器 QA 接口；要求执行的检查不等于已发布测试报告。 | 署名社区提示词 |
 | 程序化自然与模型生成资产 | **SeedThree** — SkyeShark [[源码 + 工作流]](https://github.com/SkyeShark/SeedThree) · [[在线 Demo]](https://skyeshark.github.io/SeedThree/) | 将可编辑植物预设与生成纹理／音频、PBR 贴图推导、风动画、LOD 和 GLB 导出结合；是模型工具协作案例，并非已验证的植物学或自动修复基准。 | 作者报告的创作案例 |
+| 角色建模与步行动画 | **Blender 哥布林比较** — Cong Le / @CongLe [[作者原帖]](https://x.com/CongLe/status/2109268147068862675) | 展示六种模型在相同哥布林／步行动画需求和 15 分钟预算下的独立会话产物；作者也报告了步行失败，但没有发布源码或经审计的生成轨迹。 | 作者报告的比较 Demo |
 
 <a id="topic-map"></a>
 ## 🗺️ 主题地图
@@ -446,6 +451,10 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 
 反复生成、部署、查看、交互和修复网站或应用的 Agent 与 Benchmark。
 
+- `arXiv 2026.10` **SoftwareGym: Scaling Computer-Use Agent Training with Diverse Synthesized Software Environments**. [[论文]](https://arxiv.org/abs/2610.12611) [[代码]](https://github.com/MrKiing-Jin/SoftwareGym) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Environment]` `[Verification]`
+  > 合成原生 Avalonia 应用，以截图驱动的 GUI 测试轨迹在固定用例下逐轮修复源码，再收集计算机操作训练数据。<br>
+  > **验证维度：** 构建／启动有效性 · 固定用例 GUI 完成度与修复消融 · 设计 token 保真 · 120 任务 SoftwareGym-Bench · 244 任务 OSWorld 子集迁移。
+
 - `arXiv 2026.10` **TeleGen: Improving LLM-Based Web Application Generation via Runtime Telemetry**. [[论文]](https://arxiv.org/abs/2610.04981) [[代码]](https://github.com/commoluo/TeleGen) — `[Method]` · `[Inference]` `[Verification]`
   > 以压缩运行遥测和任务反馈修复生成的 Web 应用，在 WebGen-Bench 配置中将 WebVoyager 的截图判定结果传入代码修订。<br>
   > **验证维度：** UI 任务成功率 · 遥测修复消融 · 测试 Pass@2 · 判定审计 · 上下文成本。
@@ -612,6 +621,14 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 ### 6. 3D、CAD 与场景生成
 
 生成可执行图形或 CAD 程序，并利用渲染视图、Solver 反馈或几何检查进行修改的 Agent。
+
+- `arXiv 2026.10` **Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark**. [[论文]](https://arxiv.org/abs/2610.13947) [[项目]](https://physicalvision.github.io/artisan/) — `[Method]` `[Benchmark]` · `[Inference]` `[Environment]` `[Verification]`
+  > Artisan 分离设计、编码与审阅，以 Blender 视图和 MuJoCo 运动／稳定性报告修订 Python 资产程序，同时保留预期关节运动和功能。<br>
+  > **验证维度：** 几何／外观 · 关节运动碰撞 · 重力稳定性 · 质量／材质估计 · 仿真机器人任务效用 · 交互式人工评价。
+
+- `arXiv 2026.10` **Task-Adaptive Grounded 3D-Programmers Using 2D VLMs**. [[论文]](https://arxiv.org/abs/2610.02021) — `[Method]` · `[Inference]` `[Environment]` `[Verification]`
+  > 3D-Prog 以统一坐标系多视图支撑 Python／OpenUSD 修改，将任务诊断可视化和 Judge 点评传回后续资产生成、编辑轮次。<br>
+  > **验证维度：** 几何重建 · 分割／检测 · 关节轴线 · 坐标／反馈消融 · 小规模任务与用户评价。
 
 - `arXiv 2026.09` **HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis**. [[论文]](https://arxiv.org/abs/2609.26793) [[代码]](https://github.com/ShufanSun/harmony-release) [[项目]](https://cwchenwang.github.io/harmony/) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Inference]` `[Environment]` `[Verification]`
   > 将 VLM 空间推理与图像、3D 和几何工具结合，通过逐阶段参考图—渲染点评修订渲染器消费的房间、摆放与灯光规格。<br>
@@ -801,6 +818,14 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 
 编写或修改可执行代码，将其作为状态、动作、转移、物理或环境动力学模型的 Agent。
 
+- `arXiv 2026.09` **Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise**. [[论文]](https://arxiv.org/abs/2609.36593) — `[Method]` `[System]` · `[Inference]` `[Environment]` `[Verification]`
+  > 组织 Meshy 资产生成与专门的 Genesis 代码 Writer，由独立 Critic 检查帧、视频及物理记录，再结合可复用 Debug Cards 将诊断分派为针对性的源代码修复。<br>
+  > **验证维度：** 可执行仿真 · Agent 评判的物理需求 · 视频质量 · 盲测人类偏好 · 角色／经验卡消融，不等于真实世界有效性认证。
+
+- `arXiv 2026.10` **Awomo-SimDataEngine: Agentic Simulation-ReadyWorld Generation**. [[论文]](https://arxiv.org/abs/2610.02274) — `[Method]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Environment]` `[Verification]`
+  > 通过记录证据的 Harness 组织资产、场景模型，从仿真运动视频点评修复 URDF 关节，并在机器人示范合成前修订世界构建结果。<br>
+  > **验证维度：** 零件几何 · 固定几何的关节绑定 · 场景配准／支撑 · 仿真器导出／重置检查 · 跨仿真器策略数据效用，未测量真实机器人迁移。
+
 - `arXiv 2026.10` **AgentGarten: Code Worlds for Evolving Agents**. [[论文]](https://arxiv.org/abs/2610.12374) [[代码]](https://github.com/MirroS-Lab/AgentGarten) [[项目]](https://mirros-lab.github.io/agent-garten) [[博客]](https://mirros.ai/blog/worlds-for-evolving-agents) — `[Method]` `[System]` · `[Training]` `[Inference]` `[Environment]` `[Verification]`
   > 将可执行世界状态、规则与共享神经渲染器分离，编码 Agent 调用模型工具并以多相机 rollout 检查修复场景程序，部署后的 Agent 再通过玩法笔记积累经验。<br>
   > **验证维度：** 渲染一致性／延迟 · rollout 接触、碰撞与遮挡检查 · 多轮任务表现 · 渲染器消融。
@@ -984,6 +1009,30 @@ Benchmark 可以通过某个明确的 Track、基线方法或已记录的 Agent 
 - `arXiv 2026.10` **WorldBench: Evaluating LLMs on Three.js Voxel World Generation**. [[论文]](https://arxiv.org/abs/2610.10622) [[代码]](https://github.com/KrishBakshi/worldbench) — `[Benchmark]` `[Empirical Study]` · `[Verification]`
   > 结合源码定位证据、主动视觉探索和功能移除测试审计生成的 Three.js 世界；生成器接收运行错误诊断，不接收渲染图或评分反馈。<br>
   > **验证维度：** 代码与画面证据一致性 · 视角相关覆盖 · 功能移除后的错误得分 · 时间／像素检查 · 评审重复性。
+
+- `arXiv 2026.09` **SWE-Game: Can Coding Agents Build the Games We Want?**. [[论文]](https://arxiv.org/abs/2609.33678) — `[Benchmark]` · `[Data Curation]` `[Environment]` `[Verification]`
+  > 以可执行参考游戏评测构建、修复、补全及 Godot 到 Unity 移植，将最终状态／回放检查与独立视觉量表、配对无输入对照结合。<br>
+  > **验证维度：** 需求对应的机制 · 依赖玩家动作的可玩性 · 修复恢复／行为保持 · 移植就绪 · 视觉判定与人类一致性。
+
+- `arXiv 2026.10` **OpenGameEval: Benchmarking Agentic Programming and Exploration in a Stateful Game Engine**. [[论文]](https://arxiv.org/abs/2610.02563) [[项目]](https://github.com/Roblox/open-game-eval) — `[Benchmark]` `[Empirical Study]` · `[Environment]` `[Verification]` `[Trajectory Analysis]`
+  > 通过状态读取与编辑工具测量 Roblox 场景／脚本开发，将修改前的依赖探索与最终场景、模拟客户端—服务端玩法验证分别分析。<br>
+  > **验证维度：** 场景断言 · 运行时行为 · 重复尝试可靠性 · 依赖覆盖 · 空操作 Agent 检查有效性。
+
+- `arXiv 2026.10` **GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets**. [[论文]](https://arxiv.org/abs/2610.06910) [[项目]](https://github.com/Haoyue-Yang/GameGo) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Inference]` `[Verification]`
+  > 将游戏种子转换为精简且有资产依据的需求及可执行 React 开发轨迹，用于模型训练，再对完成的游戏独立开展多模态试玩与质量评估。<br>
+  > **验证维度：** 构建／运行准入 · 需求满足 · 视觉／交互质量 · 人类偏好 · 任务压缩与训练消融。
+
+- `arXiv 2026.10` **BT-Agent: Deploying Onboard Robot Agents with Behavior Trees and Multi-Fidelity Evaluation**. [[论文]](https://arxiv.org/abs/2610.13862) — `[Method]` `[Benchmark]` · `[Inference]` `[Environment]` `[Verification]`
+  > 通过固定行为树 Skill 组织感知与物理动作工具，以结构化失败反馈重试或改变任务决策，本地 Guard 则监督经操作员批准的机载运动。<br>
+  > **验证维度：** 文本／Habitat 任务对齐 · 感知与运动失败 · 真机任务完成 · Guard 中断 · 接口／反馈消融。
+
+- `arXiv 2026.09` **AssemblyWorld: Rethinking 3D Assembly with General-Purpose Agents**. [[论文]](https://arxiv.org/abs/2609.40353) [[项目]](https://assemblyworld.github.io/) — `[Benchmark]` · `[Environment]` `[Verification]` `[Trajectory Analysis]`
+  > 研究 Agent 查看渲染视图、通过 MCP 工具修订既有零件位姿而非编写构建程序的装配任务，揭示近似装配与几何精度之间的差距。<br>
+  > **验证维度：** 零件准确率 · 完整装配成功率 · 参考图／视角影响 · 交互与失败轨迹 · 自由空间几何，不证明物理稳定性。
+
+- `arXiv 2026.09` **ConCAD: Constraint-Aware Image-to-CAD Generation with Dual-Granularity Rewards**. [[论文]](https://arxiv.org/abs/2609.34494) — `[Method]` · `[Training]` `[Verification]`
+  > 以代码约束和执行几何奖励训练图像到 CadQuery 生成，在 B-rep 上评测关系设计意图，而非根据视觉反馈逐轮修复当前产物。<br>
+  > **验证维度：** 执行有效性 · 体积重合度 · Chamfer 距离 · B-rep 约束满足度 · 奖励成分消融。
 
 - `arXiv 2026.10` **WebUIProof: Benchmarking WebUI Code Generators with UI-Agent Execution Harness**. [[论文]](https://arxiv.org/abs/2610.02617) [[代码]](https://github.com/yunyuntsai/webuiproof-benchmark) — `[Method]` `[Benchmark]` `[Dataset]` · `[Data Curation]` `[Training]` `[Environment]` `[Verification]`
   > 用结构化交互测试与视觉 UI Agent 评测生成的 Web／3D 界面，将结果级奖励用于训练生成器，而不是对当前产物进行视觉代码修复。<br>
